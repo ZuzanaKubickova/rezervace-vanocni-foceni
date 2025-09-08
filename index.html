@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rezervace</title>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 20px; }
+      input, textarea, select { margin: 5px 0; width: 100%; padding: 8px; }
+      button { padding: 10px 20px; background-color: #333; color: white; border: none; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <h2>Rezervace termínu</h2>
+    <form id="reservationForm">
+      <label>Datum:</label><input type="date" name="Datum" required>
+      <label>Čas:</label><input type="time" name="Čas" required>
+      <label>Jméno:</label><input type="text" name="Jméno" required>
+      <label>Email:</label><input type="email" name="Email" required>
+      <label>Poznámka:</label><textarea name="Poznámka"></textarea>
+      <button type="submit">Rezervovat</button>
+    </form>
+    <div id="response"></div>
+    <script>
+      document.getElementById("reservationForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        fetch("https://script.google.com/macros/s/AKfycbxnBCdNNjNbUftQNQB8CuvDWtNQKDenmN5TSRtDE2jsdPQuRmojMVSH9YG0UmSS-GDo/exec", {
+          method: "POST",
+          body: formData
+        })
+        .then(res => res.text())
+        .then(text => {
+          document.getElementById("response").innerText = text;
+          e.target.reset();
+        });
+      });
+    </script>
+  </body>
+</html>
