@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezervační kalendář</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px; }
+        h2 { text-align: center; }
+        .calendar { display: flex; justify-content: space-around; margin-top: 30px; flex-wrap: wrap; }
+        .day { background: white; padding: 15px; margin: 10px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .slot { margin: 5px 0; padding: 8px; border-radius: 4px; text-align: center; cursor: pointer; }
+        .free { background-color: #d4edda; color: #155724; }
+        #formContainer { display: none; margin-top: 30px; max-width: 500px; margin-left: auto; margin-right: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        label { display: block; margin-top: 10px; }
+        input, textarea { width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ccc; }
+        button { margin-top: 15px; padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h2>Rezervace focení</h2>
+    <div class="calendar">
+<div class="day"><h3>15.11.2025</h3>
+<div class="slot free" onclick="openForm('15.11.2025', '10:00')">10:00</div>
+<div class="slot free" onclick="openForm('15.11.2025', '10:20')">10:20</div>
+<div class="slot free" onclick="openForm('15.11.2025', '10:40')">10:40</div>
+<div class="slot free" onclick="openForm('15.11.2025', '11:00')">11:00</div>
+<div class="slot free" onclick="openForm('15.11.2025', '11:20')">11:20</div>
+<div class="slot free" onclick="openForm('15.11.2025', '11:40')">11:40</div>
+<div class="slot free" onclick="openForm('15.11.2025', '12:00')">12:00</div>
+<div class="slot free" onclick="openForm('15.11.2025', '12:20')">12:20</div>
+<div class="slot free" onclick="openForm('15.11.2025', '12:40')">12:40</div>
+<div class="slot free" onclick="openForm('15.11.2025', '13:00')">13:00</div>
+<div class="slot free" onclick="openForm('15.11.2025', '13:20')">13:20</div>
+<div class="slot free" onclick="openForm('15.11.2025', '13:40')">13:40</div>
+<div class="slot free" onclick="openForm('15.11.2025', '14:00')">14:00</div>
+<div class="slot free" onclick="openForm('15.11.2025', '14:20')">14:20</div>
+<div class="slot free" onclick="openForm('15.11.2025', '14:40')">14:40</div>
+</div>
+<div class="day"><h3>16.11.2025</h3>
+<div class="slot free" onclick="openForm('16.11.2025', '10:00')">10:00</div>
+<div class="slot free" onclick="openForm('16.11.2025', '10:20')">10:20</div>
+<div class="slot free" onclick="openForm('16.11.2025', '10:40')">10:40</div>
+<div class="slot free" onclick="openForm('16.11.2025', '11:00')">11:00</div>
+<div class="slot free" onclick="openForm('16.11.2025', '11:20')">11:20</div>
+<div class="slot free" onclick="openForm('16.11.2025', '11:40')">11:40</div>
+<div class="slot free" onclick="openForm('16.11.2025', '12:00')">12:00</div>
+<div class="slot free" onclick="openForm('16.11.2025', '12:20')">12:20</div>
+<div class="slot free" onclick="openForm('16.11.2025', '12:40')">12:40</div>
+<div class="slot free" onclick="openForm('16.11.2025', '13:00')">13:00</div>
+<div class="slot free" onclick="openForm('16.11.2025', '13:20')">13:20</div>
+<div class="slot free" onclick="openForm('16.11.2025', '13:40')">13:40</div>
+<div class="slot free" onclick="openForm('16.11.2025', '14:00')">14:00</div>
+<div class="slot free" onclick="openForm('16.11.2025', '14:20')">14:20</div>
+<div class="slot free" onclick="openForm('16.11.2025', '14:40')">14:40</div>
+</div>
+<div class="day"><h3>17.11.2025</h3>
+<div class="slot free" onclick="openForm('17.11.2025', '10:00')">10:00</div>
+<div class="slot free" onclick="openForm('17.11.2025', '10:20')">10:20</div>
+<div class="slot free" onclick="openForm('17.11.2025', '10:40')">10:40</div>
+<div class="slot free" onclick="openForm('17.11.2025', '11:00')">11:00</div>
+<div class="slot free" onclick="openForm('17.11.2025', '11:20')">11:20</div>
+<div class="slot free" onclick="openForm('17.11.2025', '11:40')">11:40</div>
+<div class="slot free" onclick="openForm('17.11.2025', '12:00')">12:00</div>
+<div class="slot free" onclick="openForm('17.11.2025', '12:20')">12:20</div>
+<div class="slot free" onclick="openForm('17.11.2025', '12:40')">12:40</div>
+<div class="slot free" onclick="openForm('17.11.2025', '13:00')">13:00</div>
+<div class="slot free" onclick="openForm('17.11.2025', '13:20')">13:20</div>
+<div class="slot free" onclick="openForm('17.11.2025', '13:40')">13:40</div>
+<div class="slot free" onclick="openForm('17.11.2025', '14:00')">14:00</div>
+<div class="slot free" onclick="openForm('17.11.2025', '14:20')">14:20</div>
+<div class="slot free" onclick="openForm('17.11.2025', '14:40')">14:40</div>
+</div>
+
+    </div>
+    <div id="formContainer">
+        <h3>Rezervace termínu</h3>
+        <form action="https://formspree.io/f/xwkgnqzv" method="POST">
+            <input type="hidden" id="selectedDay" name="Datum">
+            <input type="hidden" id="selectedTime" name="Čas">
+            <label for="name">Jméno:</label>
+            <input type="text" id="name" name="Jméno" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="Email" required>
+            <label for="note">Poznámka:</label>
+            <textarea id="note" name="Poznámka" rows="4"></textarea>
+            <button type="submit">Odeslat rezervaci</button>
+        </form>
+    </div>
+    <script>
+        function openForm(day, time) {
+            document.getElementById('selectedDay').value = day;
+            document.getElementById('selectedTime').value = time;
+            document.getElementById('formContainer').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('formContainer').offsetTop, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
